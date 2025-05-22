@@ -7,7 +7,8 @@ Este proyecto evalúa y compara el rendimiento de una aplicación Java (`Fifa.ja
 
 ## 🖥️ ¿Qué son las máquinas virtuales y los contenedores? 🚢
 
-Para entender las diferencias entre los entornos donde se ejecuta el servidor Snake, es fundamental conocer qué son las máquinas virtuales (VM) y los contenedores, dos tecnologías usadas ampliamente para aislar aplicaciones y facilitar su despliegue.
+Para entender las diferencias entre los entornos donde se ejecuta la **aplicación `Fifa.java`**, es fundamental conocer qué son las máquinas virtuales (VM) y los contenedores. Estas son dos tecnologías ampliamente utilizadas para aislar aplicaciones y facilitar su despliegue, especialmente cuando se quiere analizar el rendimiento en diferentes entornos de ejecución.
+
 
 ### 🖥️ Máquinas Virtuales (VM)
 
