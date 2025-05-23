@@ -56,62 +56,102 @@ En este proyecto se compara el rendimiento y uso de recursos de una aplicación 
 
 ---
 
+# 🧪 VM vs Docker Benchmark con Fifa.java ⚽
+
+Este proyecto compara el rendimiento de un entorno Docker frente a una máquina virtual (VM, usando por ejemplo Ubuntu en VirtualBox o Codespaces) ejecutando una aplicación Java: un simulador de partidos de fútbol llamado `Fifa.java`.
+
+Se evalúan varias métricas del sistema mientras se ejecuta el programa en ambos entornos.
+
+---
+
+## 🧠 ¿Qué se compara?
+
+| Métrica                | Descripción                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| ⏱ Tiempo de arranque   | Tiempo desde el inicio del entorno hasta la ejecución del programa.         |
+| 🧠 Uso de CPU (%)       | Promedio de uso de CPU mientras corre el programa.                          |
+| 💾 Uso de Memoria (MB)  | Memoria RAM media utilizada durante la ejecución.                           |
+| 📦 Tamaño del entorno   | Espacio que ocupa el entorno en disco (Docker image vs máquina virtual).   |
+
+---
+
+
+## 🎯 Objetivos del Proyecto
+
+- Comparar el rendimiento de la ejecución del mismo programa (Fifa.java en Java) en dos entornos:
+  - 🐳 Docker (contenedor ligero)
+  - 💻 Máquina Virtual (Ubuntu en VirtualBox o Codespaces)
+
+- Evaluar y visualizar las siguientes métricas:
+  - ⏱ Tiempo de arranque
+  - 🧠 Uso medio de CPU
+  - 💾 Uso medio de memoria RAM
+  - 📦 Tamaño del entorno
+
+- Automatizar la medición de rendimiento y generar gráficos de forma visual y clara.
+
+- Analizar cuál entorno es más eficiente en términos de recursos.
+
+---
+
+## 📊 Resultados
+
+Después de ejecutar el benchmark se generan los siguientes archivos:
+
+- 📄 `results.csv`: contiene las mediciones de uso de CPU y RAM para uno de los entornos.
+- 🖼️ `benchmark_grafico.png`: gráfico de líneas con la evolución del uso de recursos.
+- 🖼️ `comparativa_vm_vs_docker.png`: gráfico comparativo entre VM y Docker.
+
+### 📄 Ejemplo de métricas utilizadas
+
+```text
+VM_cpu = 25.0
+VM_memory = 512.0
+VM_boot_time = 28
+VM_env_size = 2048
+
+Docker_cpu = 3.5
+Docker_memory = 35.0
+Docker_boot_time = 3
+Docker_env_size = 250
+
+
 ## 📁 Estructura actual del proyecto
 
-
-
----
-
-## 📚 Bibliografía y Recursos
-
-A continuación, se presentan las principales herramientas, librerías y recursos que se han utilizado y consultado para el desarrollo y ejecución de este proyecto:
-
-### 🛠️ Herramientas y Plataformas
-
-- **Python 3.8+**  
-  Lenguaje de programación principal para el servidor y scripts.  
-  Instalación oficial: [python.org](https://www.python.org/downloads/)
-
-- **Docker**  
-  Plataforma para contenedores que permite empaquetar aplicaciones con sus dependencias.  
-  Documentación e instalación: [docs.docker.com](https://docs.docker.com/get-docker/)
-
-- **VirtualBox**  
-  Software para crear y manejar máquinas virtuales.  
-  Documentación e instalación: [virtualbox.org](https://www.virtualbox.org/wiki/Downloads)
-
-- **Jupyter Notebook**  
-  Entorno interactivo para análisis y visualización de datos con Python.  
-  Instalación: `pip install notebook`  
-  Documentación: [jupyter.org](https://jupyter.org/)
-
----
-
-## ⚙️ Requisitos
-
-```bash
-Python 3.8+
-
-Docker
-
-VirtualBox (con Linux guest si aplica)
-
-pip
-```
+Proyecto_TIC/
+│
+├── vm_vs_docker_benchmark/
+│   ├── notebooks/
+│   │   ├── vm_vs_docker_comparison.ipynb
+│   │
+│   ├── results/
+│   │   ├── 1.png
+│   │   ├── 2.png
+│   │   ├── 3.png
+│   │   ├── 4.png
+│   │   ├── Resultados.md
+│   │   ├── benchmark_grafico.png
+│   │   ├── comparativa_vm_vs_docker.png
+│   │   ├── results.csv
+│   │
+│   ├── scripts/
+│   │   ├── Dockerfile
+│   │   ├── Dockerfile.fifa
+│   │   ├── Fifa.java
+│   │   ├── benchmark_runner.py
+│   │   ├── docker_setup.sh
+│   │   ├── monitor_metrics.py
+│   │   ├── plot_comparativa.py
+│   │   ├── plot_results.py
+│   │   ├── run_benchmark.sh
+│   │   ├── vm_setup.sh
+│   │
+│   ├── .gitignore
+│   ├── README.md
+│   ├── install.ipynb
 
 ---
 
-## 📦 Librerías de Python utilizadas en el entorno
-
-Aunque el proyecto principal se desarrolló en Java, el entorno automatizado preparado para análisis y benchmarking incluía algunas librerías de Python útiles para tareas de monitorización y visualización de resultados. Estas son:
-
-- `jupyter` – Permite ejecutar y visualizar notebooks interactivos desde el navegador.
-- `matplotlib` – Librería de gráficos utilizada para visualizar métricas de rendimiento.
-- `psutil` – Permite acceder a estadísticas de uso de CPU, memoria, procesos y recursos del sistema.
-- `pip` – Gestor de paquetes utilizado para instalar otras librerías.
-- `sysbench` – Herramienta de benchmarking del sistema, usada desde la línea de comandos o integrada con Python (aunque no es una librería Python, forma parte del entorno).
-
-Estas herramientas estaban disponibles en el contenedor Docker y/o en la máquina virtual como parte del entorno de pruebas, aunque no se usaron directamente en el desarrollo de la aplicación.
 
 # Instrucciones para Configurar y Usar la Máquina Virtual Ubuntu
 
@@ -195,8 +235,58 @@ Durante la ejecución en la Máquina Virtual, se pudo comprobar el consumo de re
 
 Este documento detalla los pasos para reproducir el entorno de la Máquina Virtual y ejecutar el proyecto para facilitar la comparación con el entorno Docker.
 
+## 📚 Bibliografía y Recursos
 
+A continuación, se presentan las principales herramientas, librerías y recursos que se han utilizado y consultado para el desarrollo y ejecución de este proyecto:
 
+### 🛠️ Herramientas y Plataformas
+
+- **Python 3.8+**  
+  Lenguaje de programación principal para el servidor y scripts.  
+  Instalación oficial: [python.org](https://www.python.org/downloads/)
+
+- **Docker**  
+  Plataforma para contenedores que permite empaquetar aplicaciones con sus dependencias.  
+  Documentación e instalación: [docs.docker.com](https://docs.docker.com/get-docker/)
+
+- **VirtualBox**  
+  Software para crear y manejar máquinas virtuales.  
+  Documentación e instalación: [virtualbox.org](https://www.virtualbox.org/wiki/Downloads)
+
+- **Jupyter Notebook**  
+  Entorno interactivo para análisis y visualización de datos con Python.  
+  Instalación: `pip install notebook`  
+  Documentación: [jupyter.org](https://jupyter.org/)
+
+---
+
+## ⚙️ Requisitos
+
+```bash
+Python 3.8+
+
+Docker
+
+VirtualBox (con Linux guest si aplica)
+
+pip
+```
+
+---
+
+## 📦 Librerías de Python utilizadas en el entorno
+
+Aunque el proyecto principal se desarrolló en Java, el entorno automatizado preparado para análisis y benchmarking incluía algunas librerías de Python útiles para tareas de monitorización y visualización de resultados. Estas son:
+
+- `jupyter` – Permite ejecutar y visualizar notebooks interactivos desde el navegador.
+- `matplotlib` – Librería de gráficos utilizada para visualizar métricas de rendimiento.
+- `psutil` – Permite acceder a estadísticas de uso de CPU, memoria, procesos y recursos del sistema.
+- `pip` – Gestor de paquetes utilizado para instalar otras librerías.
+- `sysbench` – Herramienta de benchmarking del sistema, usada desde la línea de comandos o integrada con Python (aunque no es una librería Python, forma parte del entorno).
+
+Estas herramientas estaban disponibles en el contenedor Docker y/o en la máquina virtual como parte del entorno de pruebas, aunque no se usaron directamente en el desarrollo de la aplicación.
+
+---
 
 
 
