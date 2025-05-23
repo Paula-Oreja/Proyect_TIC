@@ -4,6 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+public class Fifa {
+    public static void main(String[] args) {
+        System.out.println("FIFA Java ejecutando simulación...");
+        long start = System.currentTimeMillis();
+
+        while (System.currentTimeMillis() - start < 20000) { // 20 segundos
+            for (int i = 0; i < 1000000; i++) {
+                double x = Math.sqrt(Math.random()) * Math.tan(Math.random());
+            }
+        }
+
+        System.out.println("Simulación terminada.");
+    }
+}
+
+
 // Interface estrategia
 interface EstrategiaJuego {
     int aplicarEstrategia(int habilidadTotal);
