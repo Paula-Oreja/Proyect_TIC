@@ -6,4 +6,4 @@ COPY Fifa.java .
 
 RUN javac Fifa.java
 
-CMD ["sh", "-c", "java Fifa; sleep 100"]
+CMD ["sh", "-c", "java Fifa; sleep 30"]
