@@ -118,6 +118,7 @@ Docker_env_size = 250
 
 ## 📁 Estructura actual del proyecto
 
+```text
 Proyecto_TIC/
 │
 ├── vm_vs_docker_benchmark/
@@ -149,7 +150,7 @@ Proyecto_TIC/
 │   ├── .gitignore
 │   ├── README.md
 │   ├── install.ipynb
-
+```
 ---
 
 
