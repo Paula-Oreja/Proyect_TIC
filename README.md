@@ -219,9 +219,9 @@ Se clonó el repositorio desde GitHub con el siguiente comando:
 
 git clone https://github.com/Paula-Oreja/Proyecto_TIC.git
 
-Luego se accedió a la carpeta docker donde se encuentra el archivo Fifa.java:
+Luego se accedió a la carpeta vm_vs_docker_benchmark/scripts donde se encuentra el archivo Fifa.java:
 
-cd Proyecto_TIC/docker
+cd Proyecto_TIC/vm_vs_docker_benchmark/scripts
 
 Y se compiló y ejecutó el programa con los siguientes comandos:
 
